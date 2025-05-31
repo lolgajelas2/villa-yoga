@@ -1,7 +1,6 @@
-"use client";
+'use client';
 
 import { useEffect } from "react";
-
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
@@ -28,21 +27,20 @@ const villas = [
 ];
 
 const testimonials = [
-  {
-    name: "Taka",
-    comment: "Ambatunat.",
-    rating: 1
-  },
-  {
-    name: "Uta",
-    comment: "Ambasing!",
-    rating: 1
-  },
-  {
-    name: "Clift Rival",
-    comment: "Sampean Temenya Rusdi Ya!",
-    rating: 5
-  }
+  { name: "Taka", comment: "Ambatunat.", rating: 1 },
+  { name: "Uta", comment: "Ambasing!", rating: 1 },
+  { name: "Clift Rival", comment: "Sampean Temenya Rusdi Ya!", rating: 5 }
+];
+
+const facilities = [
+  { icon: "💦", title: "Kolam Renang Pribadi" },
+  { icon: "⏰", title: "Keamanan 24 Jam" },
+  { icon: "📶", title: "WiFi Super Cepat" },
+  { icon: "🍳", title: "Dapur Modern" },
+  { icon: "🌅", title: "Pemandangan Indah" },
+  { icon: "🌴", title: "Taman Tropis" },
+  { icon: "📺", title: "Smart TV & Home Theater" },
+  { icon: "💼", title: "Concierge Eksklusif" }
 ];
 
 export default function Home() {
@@ -105,16 +103,7 @@ export default function Home() {
       <section id="facilities" className="py-20 px-6 max-w-6xl mx-auto">
         <h3 className="text-4xl font-semibold mb-12 text-center text-yellow-800">Fasilitas Unggulan</h3>
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="grid md:grid-cols-4 gap-8">
-          {[
-            { icon: "🏊‍♂️", title: "Kolam Renang Pribadi" },
-            { icon: "🛡️", title: "Keamanan 24 Jam" },
-            { icon: "📶", title: "WiFi Super Cepat" },
-            { icon: "🍽️", title: "Dapur Modern" },
-            { icon: "🌅", title: "Pemandangan Indah" },
-            { icon: "🌳", title: "Taman Tropis" },
-            { icon: "📺", title: "Smart TV & Home Theater" },
-            { icon: "🛎️", title: "Concierge Eksklusif" },
-          ].map((item, i) => (
+          {facilities.map((item, i) => (
             <motion.div key={i} whileHover={{ scale: 1.05 }} className="bg-white shadow-lg rounded-2xl p-6 text-center border border-yellow-100">
               <div className="text-4xl mb-4">{item.icon}</div>
               <h4 className="text-xl font-semibold text-yellow-700">{item.title}</h4>
@@ -146,14 +135,13 @@ export default function Home() {
         <p className="mb-2 font-medium text-yellow-700">📞 0895-7056-80291</p>
         <p className="mb-4 font-medium text-yellow-700">✉️ yoga.ambadetukam@gmail.com</p>
         <a 
-         href="https://wa.me/62895705680291"
-         target="_blank"
-         rel="noopener noreferrer"
-         className="mt-4 inline-block bg-yellow-600 text-white hover:bg-yellow-700 px-8 py-2 rounded-full shadow transition-transform duration-300 transform hover:scale-105"
-       >
-         Hubungi Sekarang
-       </a>
-
+          href="https://wa.me/62895705680291"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block bg-yellow-600 text-white hover:bg-yellow-700 px-8 py-2 rounded-full shadow transition-transform duration-300 transform hover:scale-105"
+        >
+          Hubungi Sekarang
+        </a>
       </section>
 
       <footer className="py-8 text-center text-gray-500 text-sm border-t bg-white/80 backdrop-blur">
