@@ -1,9 +1,11 @@
+
 'use client';
 
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const villas = [
   {
@@ -75,19 +77,12 @@ export default function Home() {
         </motion.div>
       </header>
 
-      <section id="about" className="py-20 px-8 max-w-5xl mx-auto text-center">
-        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }}>
-          <h3 className="text-4xl font-semibold mb-6 text-yellow-800">Tentang Villa</h3>
-          <p className="text-lg text-gray-700 leading-relaxed">Villa Yoga Saputra menghadirkan pengalaman menginap eksklusif di lokasi terbaik Balikpapan. Dengan arsitektur modern dan fasilitas kelas dunia, villa ini menjadi destinasi sempurna untuk relaksasi, pesta pribadi, atau liburan romantis.</p>
-        </motion.div>
-      </section>
-
       <section id="villas" className="py-20 bg-yellow-50 px-6">
         <h3 className="text-4xl font-semibold text-center mb-14 text-yellow-800">Pilihan Villa Eksklusif</h3>
         <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {villas.map((villa, idx) => (
             <motion.div key={idx} whileHover={{ scale: 1.05 }} className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-yellow-100">
-              <img src={villa.image} alt={villa.name} className="w-full h-64 object-cover" />
+              <Image src={villa.image} alt={villa.name} width={500} height={300} className="w-full h-64 object-cover" />
               <div className="p-6">
                 <h4 className="text-2xl font-bold mb-3 text-yellow-700">{villa.name}</h4>
                 <p className="text-lg font-semibold text-yellow-500 mb-4">{villa.price}</p>
@@ -117,11 +112,13 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {testimonials.map((t, idx) => (
             <motion.div key={idx} whileHover={{ scale: 1.03 }} className="bg-white p-6 rounded-3xl shadow-md border border-yellow-200">
-              <p className="mb-4 italic text-gray-700">"{t.comment}"</p>
+              <p className="mb-4 italic text-gray-700">&quot;{t.comment}&quot;</p>
               <div className="flex items-center justify-between">
                 <span className="font-semibold text-yellow-700">- {t.name}</span>
                 <div className="flex text-yellow-400">
-                  {[...Array(t.rating)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
+                  {[...Array(t.rating)].map((_, i) => (
+                    <Star key={i} size={16} fill="currentColor" />
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -134,14 +131,7 @@ export default function Home() {
         <p className="mb-4 text-gray-700 text-lg">Hubungi kami untuk informasi lebih lanjut atau pemesanan eksklusif:</p>
         <p className="mb-2 font-medium text-yellow-700">📞 0895-7056-80291</p>
         <p className="mb-4 font-medium text-yellow-700">✉️ yoga.ambadetukam@gmail.com</p>
-        <a 
-          href="https://wa.me/62895705680291"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-block bg-yellow-600 text-white hover:bg-yellow-700 px-8 py-2 rounded-full shadow transition-transform duration-300 transform hover:scale-105"
-        >
-          Hubungi Sekarang
-        </a>
+        <a href="https://wa.me/62895705680291" target="_blank" rel="noopener noreferrer" className="mt-4 inline-block bg-yellow-600 text-white hover:bg-yellow-700 px-8 py-2 rounded-full shadow transition-transform duration-300 transform hover:scale-105">Hubungi Sekarang</a>
       </section>
 
       <footer className="py-8 text-center text-gray-500 text-sm border-t bg-white/80 backdrop-blur">
